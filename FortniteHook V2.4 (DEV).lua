@@ -1,23 +1,21 @@
 print("FortniteHook Is Not Pasted And Detected")
 
---Dev Script
+--Developer Build
 --Fortnite Hook Taps All
 --[[  Changelogs
     Added   
-      [+] Made Configs Folder And Luas Folder
+      [+] Visuals, SkyBoxes, Broken Quickpeek, And Hitsounds
 
     Fixes
-      [!] Nothing Lol
+      [!] BIG IMPROVEMENTS ON FAKELAG *Use fakelag on key so it can work better then turn it off when ur behind him* *+ Turn On Visual Lag Then When It Pops Up Thats When You Start To Go Behind Him And Shit*
 
     Upcoming Updates
-      [*] Fakeframe Fakelag Type Stuff, Visual Updates, Fixing Bullet Tracer
-                                                         [-] Eletric Tracers
-                                                         [-] Not Coming Off Of Your Face
+      [*]Not Telling!
 ]]
 
 getgenv().values = {}
 local library = loadstring(game:HttpGet'https://raw.githubusercontent.com/CatzCode/PikaHub/main/Libraries/UI/bruh.lua')()
-library:CreateWatermark("FortniteHook 卐 Dev Script 卐 https://discord.gg/jdfvD3EF2f")
+library:CreateWatermark("FortniteHook 卐 Developer Build 卐 V2.4")
 library.theme.accentcolor = Color3.fromRGB(255, 167, 0)
 library.theme.accentcolor2 = Color3.fromRGB(234, 196, 95)
 library.theme.topheight = 42
@@ -4245,42 +4243,86 @@ local Multipliers = {
 }
 local ChamItems = {}
 local Skyboxes = {
-	["nebula"] = {
-		SkyboxLf = "rbxassetid://159454286",
-		SkyboxBk = "rbxassetid://159454299",
-		SkyboxDn = "rbxassetid://159454296",
-		SkyboxFt = "rbxassetid://159454293",
-		SkyboxLf = "rbxassetid://159454286",
-		SkyboxRt = "rbxassetid://159454300",
-		SkyboxUp = "rbxassetid://159454288",
-	},
-	["vaporwave"] = {
-		SkyboxLf = "rbxassetid://1417494402",
-		SkyboxBk = "rbxassetid://1417494030",
-		SkyboxDn = "rbxassetid://1417494146",
-		SkyboxFt = "rbxassetid://1417494253",
-		SkyboxLf = "rbxassetid://1417494402",
-		SkyboxRt = "rbxassetid://1417494499",
-		SkyboxUp = "rbxassetid://1417494643",
-	},
-	["clouds"] = {
-		SkyboxLf = "rbxassetid://570557620",
-		SkyboxBk = "rbxassetid://570557514",
-		SkyboxDn = "rbxassetid://570557775",
-		SkyboxFt = "rbxassetid://570557559",
-		SkyboxLf = "rbxassetid://570557620",
-		SkyboxRt = "rbxassetid://570557672",
-		SkyboxUp = "rbxassetid://570557727",
-	},
-	["twilight"] = {
-		SkyboxLf = "rbxassetid://264909758",
-		SkyboxBk = "rbxassetid://264908339",
-		SkyboxDn = "rbxassetid://264907909",
-		SkyboxFt = "rbxassetid://264909420",
-		SkyboxLf = "rbxassetid://264909758",
-		SkyboxRt = "rbxassetid://264908886",
-		SkyboxUp = "rbxassetid://264907379",
-	},
+    ["Purple Nebula"] = {
+        ["SkyboxBk"] = "rbxassetid://159454299",
+        ["SkyboxDn"] = "rbxassetid://159454296",
+        ["SkyboxFt"] = "rbxassetid://159454293",
+        ["SkyboxLf"] = "rbxassetid://159454286",
+        ["SkyboxRt"] = "rbxassetid://159454300",
+        ["SkyboxUp"] = "rbxassetid://159454288"
+    },
+    ["Night Sky"] = {
+        ["SkyboxBk"] = "rbxassetid://12064107",
+        ["SkyboxDn"] = "rbxassetid://12064152",
+        ["SkyboxFt"] = "rbxassetid://12064121",
+        ["SkyboxLf"] = "rbxassetid://12063984",
+        ["SkyboxRt"] = "rbxassetid://12064115",
+        ["SkyboxUp"] = "rbxassetid://12064131"
+    },
+    ["Pink Daylight"] = {
+        ["SkyboxBk"] = "rbxassetid://271042516",
+        ["SkyboxDn"] = "rbxassetid://271077243",
+        ["SkyboxFt"] = "rbxassetid://271042556",
+        ["SkyboxLf"] = "rbxassetid://271042310",
+        ["SkyboxRt"] = "rbxassetid://271042467",
+        ["SkyboxUp"] = "rbxassetid://271077958"
+    },
+    ["Morning Glow"] = {
+        ["SkyboxBk"] = "rbxassetid://1417494030",
+        ["SkyboxDn"] = "rbxassetid://1417494146",
+        ["SkyboxFt"] = "rbxassetid://1417494253",
+        ["SkyboxLf"] = "rbxassetid://1417494402",
+        ["SkyboxRt"] = "rbxassetid://1417494499",
+        ["SkyboxUp"] = "rbxassetid://1417494643"
+    },
+    ["Setting Sun"] = {
+        ["SkyboxBk"] = "rbxassetid://626460377",
+        ["SkyboxDn"] = "rbxassetid://626460216",
+        ["SkyboxFt"] = "rbxassetid://626460513",
+        ["SkyboxLf"] = "rbxassetid://626473032",
+        ["SkyboxRt"] = "rbxassetid://626458639",
+        ["SkyboxUp"] = "rbxassetid://626460625"
+    },
+    ["Fade Blue"] = {
+        ["SkyboxBk"] = "rbxassetid://153695414",
+        ["SkyboxDn"] = "rbxassetid://153695352",
+        ["SkyboxFt"] = "rbxassetid://153695452",
+        ["SkyboxLf"] = "rbxassetid://153695320",
+        ["SkyboxRt"] = "rbxassetid://153695383",
+        ["SkyboxUp"] = "rbxassetid://153695471"
+    },
+    ["Elegant Morning"] = {
+        ["SkyboxBk"] = "rbxassetid://153767241",
+        ["SkyboxDn"] = "rbxassetid://153767216",
+        ["SkyboxFt"] = "rbxassetid://153767266",
+        ["SkyboxLf"] = "rbxassetid://153767200",
+        ["SkyboxRt"] = "rbxassetid://153767231",
+        ["SkyboxUp"] = "rbxassetid://153767288"
+    },
+    ["Neptune"] = {
+        ["SkyboxBk"] = "rbxassetid://218955819",
+        ["SkyboxDn"] = "rbxassetid://218953419",
+        ["SkyboxFt"] = "rbxassetid://218954524",
+        ["SkyboxLf"] = "rbxassetid://218958493",
+        ["SkyboxRt"] = "rbxassetid://218957134",
+        ["SkyboxUp"] = "rbxassetid://218950090"
+    },
+    ["Redshift"] = {
+        ["SkyboxBk"] = "rbxassetid://401664839",
+        ["SkyboxDn"] = "rbxassetid://401664862",
+        ["SkyboxFt"] = "rbxassetid://401664960",
+        ["SkyboxLf"] = "rbxassetid://401664881",
+        ["SkyboxRt"] = "rbxassetid://401664901",
+        ["SkyboxUp"] = "rbxassetid://401664936"
+    },
+    ["Aesthetic Night"] = {
+        ["SkyboxBk"] = "rbxassetid://1045964490",
+        ["SkyboxDn"] = "rbxassetid://1045964368",
+        ["SkyboxFt"] = "rbxassetid://1045964655",
+        ["SkyboxLf"] = "rbxassetid://1045964655",
+        ["SkyboxRt"] = "rbxassetid://1045964655",
+        ["SkyboxUp"] = "rbxassetid://1045962969"
+    }
 }
 local NewScope
 do
@@ -4675,7 +4717,7 @@ local function AddLegit(Tab)
 	Tab:Element("Dropdown", "priority", {options = {"closest", "head", "chest"}})
 	Tab:Element("Toggle", "triggerbot")
 	Tab:Element("Slider", "delay (ms)", {min = 0, max = 300, default = 200})
-	Tab:Element("Slider", "minimum dmg", {min = 0, max = 100, default = 15})
+	Tab:Element("Slider", "minimum dmg", {min = -10, max = 10, default = 15})
 end
 
 AddLegit(default)
@@ -4722,7 +4764,7 @@ local auto = weapons:Tab("auto")
 local function AddRage(Tab)
 	Tab:Element("Jumbobox", "hitboxes", {options = {"head", "torso", "pelvis"}})
 	Tab:Element("Toggle", "prefer body")
-	Tab:Element("Slider", "minimum damage", {min = 1, max = 100, default = 20})
+	Tab:Element("Slider", "minimum damage", {min = -10, max = 10, default = 20})
 	Tab:Element("Slider", "max fov", {min = 1, max = 180, default = 180})
 end
 
@@ -4826,17 +4868,48 @@ exploits:Element("Dropdown", "peak method", {options = {"freeze", "teleport", "t
 exploits:Element("Slider", "tween speed", {min = 1, max = 100, default = 1,})
 exploits:Element("Toggle", "limit peak")
 exploits:Element("Slider", "limit distance", {min = 1, max = 200, default = 10,})
-exploits:Element("ToggleKeybind", "In Air Peek",{},function(tbl)
+exploits:Element("Slider", "dick in the air vertical pos", {min = -500, max = 500, default = 200})  
+exploits:Element("ToggleKeybind", "Put Ur Dick In The Air Peek Keybind",{},function(tbl)
 	if tbl.Toggle and tbl.Active and LocalPlayer.Character and Peek == false then
-		Peek = true
-		LocalPlayer.Character.HumanoidRootPart.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,values.rage.exploits["in air peek vertical pos"].Slider,0)
-		wait(0.2)
-		Peek = false
-		LocalPlayer.Character.HumanoidRootPart.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame - Vector3.new(0,values.rage.exploits["in air peek vertical pos"].Slider,0)
+		if values.rage.exploits["loop peek"].Toggle == true and values.rage.exploits["quick peek"].Active == true then
+			while values.rage.exploits["loop peek"].Toggle == true do
+				Peek = true
+				LocalPlayer.Character.HumanoidRootPart.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,values.rage.exploits["qp vertical pos"].Slider,0)
+				wait(0.2)
+				Peek = false
+				LocalPlayer.Character.HumanoidRootPart.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame - Vector3.new(0,values.rage.exploits["qp vertical pos"].Slider,0)
+				wait(0.2)
+			end
+		else
+			Peek = true
+			LocalPlayer.Character.HumanoidRootPart.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,values.rage.exploits["qp vertical pos"].Slider,0)
+			wait(0.2)
+			Peek = false
+			LocalPlayer.Character.HumanoidRootPart.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame - Vector3.new(0,values.rage.exploits["qp vertical pos"].Slider,0)
+		end
 	elseif  not tbl.Active then
 		Peek = false
 	end
 end)  
+exploits:Element("Toggle","loop peek")
+local AutoPeek = {
+    OldPeekPosition = CFrame.new()
+}
+
+exploits:Element("ToggleKeybind","auto peek",{},function(tbl)
+	if tbl.Toggle and tbl.Active and LocalPlayer.Character then
+        AutoPeek.OldPeekPosition = LocalPlayer.Character.HumanoidRootPart.CFrame
+	end
+end)
+
+OldClientFireBullet = Client.firebullet
+Client.firebullet = function(...)
+    if values.rage.exploits["auto peek"].Toggle and values.rage.exploits["auto peek"].Active and LocalPlayer.Character then
+        LocalPlayer.Character.HumanoidRootPart.CFrame = AutoPeek.OldPeekPosition
+    end
+    return OldClientFireBullet(...)
+end
+
 
 local players = visuals:Sector("players", "Left")
 players:Element("Toggle", "teammates")
@@ -5028,14 +5101,37 @@ effects:Element("Jumbobox", "removals", {options = {"scope", "scope lines", "fla
 	end
 end)
 effects:Element("Toggle", "force crosshair")
-effects:Element("ToggleColor", "world color", {default = {Color = COL3RGB(255,255,255)}}, function(val)
+effects:Element("ToggleColor", "world color", {default = {Color = COL3RGB(255,255,255)}}, function(val) 
+	if val.Toggle then 
+		Camera.ColorCorrection.TintColor = val.Color 
+	else 
+		Camera.ColorCorrection.TintColor = COL3RGB(255,255,255) 
+	end 
+end) 
+effects:Element("ToggleColor", "Ambient", {default = {Color = COL3RGB(255,255,255)}}, function(val) 
 	if val.Toggle then
-		Camera.ColorCorrection.TintColor = val.Color
+		game.Lighting.ColorShift_Bottom = val.Color
+		game.Lighting.ColorShift_Top = val.Color
+		game.Lighting.OutdoorAmbient = val.Color
+		game.Lighting.ColorShift_Bottom = val.Color
+		game.Lighting.ColorShift_Top = val.Color
 	else
-		Camera.ColorCorrection.TintColor = COL3RGB(255,255,255)
+		game.Lighting.ColorShift_Bottom = Color3.fromRGB(255, 255, 255)
+		game.Lighting.ColorShift_Top = Color3.fromRGB(255, 255, 255)
+		game.Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)
+		game.Lighting.ColorShift_Bottom = Color3.fromRGB(255, 255, 255)
+		game.Lighting.ColorShift_Top = Color3.fromRGB(255, 255, 255)
 	end
 end)
-effects:Element("Toggle", "shadowmap technology", nil, function(val) sethiddenproperty(Lighting, "Technology", val.Toggle and "ShadowMap" or "Legacy") end)
+local zuhnmode = Instance.new("ColorCorrectionEffect", workspace.CurrentCamera)
+				effects:Element("Toggle", "Boost Saturation", {}, function(tbl)
+					if tbl.Toggle then
+						zuhnmode.Saturation = 1.4
+				else
+				zuhnmode.Saturation = 0
+				end
+				end)      
+effects:Element("Toggle", "shadowmap technology", nil, function(val) sethiddenproperty(Lighting, "Technology", val.Toggle and "ShadowMap" or "Legacy") end) 
 
 local self = visuals:Sector("self", "Right")
 self:Element("ToggleKeybind", "third person", {}, function(tbl)
@@ -5200,7 +5296,7 @@ game:GetService("Lighting").Changed:Connect(function()
     end
 end)
 
-world:Element("Dropdown", "skybox", {options = {"none", "nebula", "vaporwave", "clouds"}}, function(tbl)
+world:Element("Dropdown", "skybox", {options = {"none", "Purple Nebula", "Night Sky", "Pink Daylight", "Morning Glow", "Setting Sun", "Fade Blue", "Elegant Morning", "Neptune", "Redshift", "Aesthetic Night" }}, function(tbl)
 	local sky = tbl.Dropdown
 	if sky ~= "none" then
 		if Lighting:FindFirstChildOfClass("Sky") then Lighting:FindFirstChildOfClass("Sky"):Destroy() end
