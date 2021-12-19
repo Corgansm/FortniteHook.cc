@@ -1,39 +1,76 @@
-print("Welcome Chad Please Wait Until Its Done Loading...")
-wait(2.0)
-print("Loading...")
-wait(3.0)
-print("Welcome To FortniteHook The Best Cheat In The Market")
+--[[ 
+	-- Doggo 14/12/2021: Please stop adding fake loading waits :( 
+	-- I already made REAL loading notfications
 
-game.StarterGui:SetCore("SendNotification", {
-    Title = "FORTNITEHACK";
-    Text = "hello user";
-    Icon = "http://www.roblox.com/asset/?id=8102647993";
-    Duration = 6;
-})
-
---Developer Build
---Fortnite Hook Taps All
---[[  Changelogs
-    Updates/Added  
-      [+] Added Noclip
-      [+] Added Custom Pitch
-      [+] Added Antiaim Mode On Key "Disable Angles*
-      [+] Adding A Loader Made By I feel bad#7826, not Danix
-      [+] Adding random types chat messages 
-      [+] Adding custon name of configs ( .FNHook )
-      [+] Adding notification
-
-    Fixes
-      [!] Didnt Really Fixed Anything
-
-    Upcoming Updates
-      [*]Improvements On Ragebot
-      [*]Improvements On Visuals
-      [*]Improvements On Noclip Making It So You Can Fly
-      [*]Improvements On Fakelag Or Adding A Fakeframe
-      [*]Adding Remove Radio Commands
+	print('Please, Wait For The Ingame Pop Up Message')
+	wait(1.5)
+	print('Loading')
 ]]
 
+function CreateHitlogs()
+    local functions = {}
+
+    local HitLogs = Instance.new("ScreenGui")
+    HitLogs.Name = "HitLogs"
+    HitLogs.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    HitLogs.Parent = game:GetService("CoreGui")
+
+    local Frame = Instance.new("Frame")
+    Frame.Size = UDim2.new(0, 464, 0, 32)
+    Frame.BackgroundTransparency = 1
+    Frame.Position = UDim2.new(1, -469, 0, 5)
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame.Parent = HitLogs
+
+    local UIListLayout = Instance.new("UIListLayout")
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Parent = Frame
+
+    function functions.CreateText(Textsmile, dur)
+        spawn(function()
+            local TextLabel = Instance.new("TextLabel")
+            TextLabel.Size = UDim2.new(0, 464, 0, 35)
+            TextLabel.BackgroundTransparency = 1
+            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel.FontSize = Enum.FontSize.Size18
+            TextLabel.TextStrokeTransparency = 0
+            TextLabel.TextTransparency = 1
+            TextLabel.TextSize = 18
+            TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel.Text = Textsmile
+            TextLabel.Font = Enum.Font.SourceSansSemibold
+            TextLabel.TextXAlignment = Enum.TextXAlignment.Right
+            TextLabel.Parent = Frame
+
+            local Tween = game:GetService("TweenService"):Create(TextLabel, TweenInfo.new(1, 2, 2), {['TextTransparency'] = 0})
+            Tween:Play()
+            Tween.Completed:Wait()
+
+            wait(dur)
+
+            local away = game:GetService("TweenService"):Create(TextLabel, TweenInfo.new(0.1, 2, 1), {['TextTransparency'] = 1})
+            away:Play()
+            away.Completed:Wait()
+            
+            TextLabel:Remove()
+        end)
+    end
+
+    return {
+        ['functions'] = functions,
+        ['instance'] = HitLogs,
+    }
+end
+
+hitlogs = CreateHitlogs()
+
+
+hitlogs.functions.CreateText('Welcome To Fortnitehook!')
+
+--User Build
+--Fortnite Hook Taps All
+--The Best Well Known Script For Fortnitehook!
 local chatmessages_FortniteHook = {
 	"die from FORTNITEHACK? - is not surprising",
 	"suck Lebron balls",
@@ -4794,16 +4831,15 @@ local function ChangeCharacter(NewCharacter)
 		end
 	end
 
-	if values.visuals.self["self chams"].Toggle then      
-		for _,obj in pairs(SelfObj) do      
-			if obj.Parent ~= nil then      
-				obj.Material = values.visuals.self["self chams material"].Dropdown
-				obj.Color = values.visuals.self["self chams"].Color     
-				obj.Transparency = values.visuals.self["self chams transparency"].Slider/10    
-			end      
-		end      
-	end      
-end      
+	if values.visuals.self["self chams"].Toggle then
+		for _,obj in pairs(SelfObj) do
+			if obj.Parent ~= nil then
+				obj.Material = Enum.Material.ForceField
+				obj.Color = values.visuals.self["self chams"].Color
+			end
+		end
+	end
+end
 local function GetDeg(pos1, pos2)
 	local start = pos1.LookVector
 	local vector = CF(pos1.Position, pos2).LookVector
@@ -4912,6 +4948,7 @@ end
 
 RunService.RenderStepped:Wait()
 
+
 local gui = library:New("FortniteHook")
 local legit = gui:Tab("legit")
 local rage = gui:Tab("rage")
@@ -4931,6 +4968,7 @@ api.newelement = function(section, type, name, data, callback)
 	section:Element(type, name, data, callback)
 end
 
+hitlogs.functions.CreateText('Wolcome~ '..game.Players.LocalPlayer.Name..'-chan <3, i hope you have nice day nya~.', 3) -- Doggo 14/12/2021: shhhh
 
 local luascripts = luas:Sector("lua scripts", "Left")
 luascripts:Element("Scroll", "lua", {options = allluas, Amount = 5})
@@ -5080,7 +5118,7 @@ antiaim:Element("ToggleKeybind", "disable angles", {default = {Toggle = false}})
 local others = rage:Sector("others", "Right")
 others:Element("Toggle", "remove head")
 others:Element("Toggle", "no animations")
-others:Element("Dropdown", "leg movement", {options = {"off", "Fortnite Walk"}})
+others:Element("Dropdown", "leg movement", {options = {"off", "slide"}})
 
 local LagTick = 0 
 local fakelag = rage:Sector("fakelag", "Right") 
@@ -5487,28 +5525,24 @@ end)
 self:Element("Slider", "roll", {min = -100, max = 100}, function(val)
 	ViewmodelOffset = CF(values.visuals.self["viewmodel x"].Slider/7, values.visuals.self["viewmodel y"].Slider/7, values.visuals.self["viewmodel z"].Slider/7) * CFAngles(0, 0, values.visuals.self.roll.Slider/50)
 end)
-self:Element("ToggleColor", "self chams", {default = {Color = COL3RGB(255,255,255)}}, function(tbl)      
-	if tbl.Toggle then      
-		for _,obj in pairs(SelfObj) do      
-			if obj.Parent ~= nil then      
-				obj.Material = values.visuals.self["self chams material"].Dropdown
-				obj.Color = values.visuals.self["self chams"].Color    
-				obj.Transparency = values.visuals.self["self chams transparency"].Slider/10
-			end      
-		end      
-	else      
-		for _,obj in pairs(SelfObj) do      
-			if obj.Parent ~= nil then      
-				obj.Material = values.visuals.self["self chams material"].Dropdown
-				obj.Color = values.visuals.self["self chams"].Color 
-				obj.Transparency = values.visuals.self["self chams transparency"].Slider/10  
-			end      
-		end      
-	end      
-end)   
-self:Element("Dropdown", "self chams material", {options = {"ForceField","Neon","SmoothPlastic"}})         
-self:Element("Slider", "self chams transparency", {min = 0, max = 10})
-self:Element("Slider", "scope blend", {min = 0, max = 100, default = 0})      
+self:Element("ToggleColor", "self chams", {default = {Color = COL3RGB(255,255,255)}}, function(tbl)
+	if tbl.Toggle then
+		for _,obj in pairs(SelfObj) do
+			if obj.Parent ~= nil then
+				obj.Material = Enum.Material.ForceField
+				obj.Color = tbl.Color
+			end
+		end
+	else
+		for _,obj in pairs(SelfObj) do
+			if obj.Parent ~= nil then
+				obj.Material = obj.OriginalMaterial.Value
+				obj.Color = obj.OriginalColor.Value
+			end
+		end
+	end
+end)
+self:Element("Slider", "scope blend", {min = 0, max = 100, default = 0})
 
 local ads = Client.updateads
 Client.updateads = function(self, ...)
@@ -6677,36 +6711,37 @@ RunService.RenderStepped:Connect(function(step)
 			local Angle = -ATAN2(CamLook.Z, CamLook.X) + RAD(-90)
 			local Offset
 			local CFramePos
-			if not values.rage.angles["disable angles"].Toggle and not values.rage.angles["disable angles"].Active then 
-				if values.rage.angles["yaw base"].Dropdown == "spin" then
-					Angle = Angle + RAD(Spin)
-				end
-				if values.rage.angles["yaw base"].Dropdown == "random" then
-					Angle = Angle + RAD(RANDOM(0, 360))
-				end
-				Offset = RAD(-values.rage.angles["yaw offset"].Slider - (values.rage.angles.jitter.Toggle and Jitter and values.rage.angles["jitter offset"].Slider or 0))
-				CFramePos = CF(Root.Position) * CFAngles(0, Angle + Offset, 0)
-				
-				if values.rage.angles["yaw base"].Dropdown == "targets" then
-					local part
-					local closest = 9999
-					for _,plr in pairs(Players:GetPlayers()) do
-						if plr.Character and plr.Character:FindFirstChild("Humanoid") and plr.Character:FindFirstChild("Humanoid").Health > 0 and plr.Team ~= LocalPlayer.Team then
-							local pos, onScreen = Camera:WorldToViewportPoint(plr.Character.HumanoidRootPart.Position)
-							local magnitude = (Vec2(pos.X, pos.Y) - Vec2(Mouse.X, Mouse.Y)).Magnitude
-							if closest > magnitude then
-								part = plr.Character.HumanoidRootPart
-								closest = magnitude
-							end
-						end
-					end
-					if part ~= nil then
-						CFramePos = CF(Root.Position, part.Position) * CFAngles(0, Offset +  RAD(0), 0)
-					end
-				end
-			else 
-				CFramePos = CF(Root.Position) * CFAngles(0, Angle, 0)	
-		    end
+            if values.rage.angles["yaw base"].Dropdown == "spin" then
+                Angle = Angle + RAD(Spin)
+            end
+            if values.rage.angles["yaw base"].Dropdown == "random" then
+                Angle = Angle + RAD(RANDOM(0, 360))
+            end
+
+            Offset = RAD(-values.rage.angles["yaw offset"].Slider - (values.rage.angles.jitter.Toggle and Jitter and values.rage.angles["jitter offset"].Slider or 0))
+            CFramePos = CF(Root.Position) * CFAngles(0, Angle + Offset, 0)
+            
+            if values.rage.angles["yaw base"].Dropdown == "targets" then
+                local part
+                local closest = 9999
+                for _,plr in pairs(Players:GetPlayers()) do
+                    if plr.Character and plr.Character:FindFirstChild("Humanoid") and plr.Character:FindFirstChild("Humanoid").Health > 0 and plr.Team ~= LocalPlayer.Team then
+                        local pos, onScreen = Camera:WorldToViewportPoint(plr.Character.HumanoidRootPart.Position)
+                        local magnitude = (Vec2(pos.X, pos.Y) - Vec2(Mouse.X, Mouse.Y)).Magnitude
+                        if closest > magnitude then
+                            part = plr.Character.HumanoidRootPart
+                            closest = magnitude
+                        end
+                    end
+                end
+                if part ~= nil then
+                    CFramePos = CF(Root.Position, part.Position) * CFAngles(0, Offset +  RAD(0), 0)
+                end
+            end
+
+            if values.rage.angles["disable angles"].Toggle and values.rage.angles["disable angles"].Active then 
+                CFramePos = CF(Root.Position) * CFAngles(0, Angle, 0)	
+            end
 
 			Root.CFrame = YROTATION(CFramePos)
 
@@ -7035,10 +7070,15 @@ mt.__namecall = function(self, ...)
         end
 	end
 	if method == "FireServer" and self.Name == "HitPart" then
+        if game.Players:FindFirstChild(args[1].Parent.Name) then 
+            hitlogs.functions.CreateText('Hitted '..args[1].Parent.Name..' on '.. args[1].Name, 3)
+        end
+
 		if values.rage.aimbot["force hit"].Toggle and RageTarget ~= nil then
 			args[1] = RageTarget
 			args[2] = RageTarget.Position
 		end
+
 		if (values.rage.aimbot["sex package"].Toggle and RageTarget ~= nil) then      
 			coroutine.wrap(function()      
 				if Players:GetPlayerFromCharacter(args[1].Parent) or args[1] == RageTarget then      
@@ -7258,7 +7298,7 @@ LocalPlayer.Additionals.TotalDamage:GetPropertyChangedSignal("Value"):Connect(fu
 
 	local sound = INST("Sound")
 	sound.Parent = game:GetService("SoundService")
-	sound.SoundId = hitsounds[values.visuals.world.hitsound.Dropdown]
+	sound.SoundId = 'http://www.roblox.com/asset/?id='..hitsounds[values.visuals.world.hitsound.Dropdown]
 	sound.Volume = values.visuals.world["sound volume"].Slider
 	sound.PlayOnRemove = true
 	sound:Destroy()
